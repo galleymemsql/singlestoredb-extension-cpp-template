@@ -1,6 +1,9 @@
 # Prerequisites
 *.d
 
+# SQL files
+*.sql
+
 # Compiled Object files
 *.slo
 *.lo
