@@ -1,3 +1,5 @@
+all: clean release
+
 .PHONY: debug
 debug: DBGFLAGS = -g
 debug: extension.wasm
@@ -6,7 +8,14 @@ debug: extension.wasm
 release: extension.wasm
 
 extension.wasm: gen
-	clang++ -fno-exceptions --target=wasm32-unknown-wasi -mexec-model=reactor -I. -o extension.wasm extension.cpp extension_impl.cpp
+	clang++ \
+		${DBGFLAGS} \
+		-fno-exceptions \
+ 		--target=wasm32-unknown-wasi \
+ 		-mexec-model=reactor \
+ 		-I. \
+ 		-o extension.wasm \
+ 		extension.cpp extension_impl.cpp
 
 .PHONY: gen
 gen:

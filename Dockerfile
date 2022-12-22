@@ -13,7 +13,7 @@ ARG WASI_VERSION=14
 ARG WASI_VERSION_FULL=${WASI_VERSION}.0
 
 RUN set -x \
-  && apt-get update && apt-get install -y wget \
+  && apt-get update && apt-get install -y wget make \
   && wget -q https://github.com/CraneStation/wasi-sdk/releases/download/wasi-sdk-${WASI_VERSION}/wasi-sdk_${WASI_VERSION_FULL}_amd64.deb \
   && dpkg -i wasi-sdk_${WASI_VERSION_FULL}_amd64.deb \
   && rm -f wasi-sdk_${WASI_VERSION_FULL}_amd64.deb \
