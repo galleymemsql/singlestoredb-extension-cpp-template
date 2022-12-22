@@ -21,4 +21,5 @@ jobs:
         prerelease: true
         files: |
           LICENSE
+          *.wit
           *.wasm
