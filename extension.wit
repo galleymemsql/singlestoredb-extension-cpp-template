@@ -4,5 +4,5 @@ record state {
 }
 greet: func(name: string) -> string
 answer-to-life: func() -> s32
-set-state: func(s: state)
+set-state: func(s: state) -> s32
 get-state: func() -> state

@@ -27,10 +27,11 @@ static WasmState WASM_STATE = WasmState();
 
 /// @brief Updates the WASM state
 /// @param s State to be stored
-void extension_set_state(extension_state_t *s) {
+int32_t extension_set_state(extension_state_t *s) {
     WASM_STATE._buffer = std::vector<uint8_t>(s->buffer.len);
     memcpy(WASM_STATE._buffer.data(), s->buffer.ptr, s->buffer.len);
     WASM_STATE._idx = s->idx;
+    return WASM_STATE._idx;
 }
 
 /// @brief Returns the current WASM state

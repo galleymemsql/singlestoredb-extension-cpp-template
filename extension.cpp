@@ -65,12 +65,13 @@ int32_t __wasm_export_extension_answer_to_life(void) {
   return ret;
 }
 __attribute__((export_name("set-state")))
-void __wasm_export_extension_set_state(int32_t arg, int32_t arg0, int32_t arg1) {
+int32_t __wasm_export_extension_set_state(int32_t arg, int32_t arg0, int32_t arg1) {
   extension_state_t arg2 = (extension_state_t) {
     (extension_list_u8_t) { (uint8_t*)(arg), (size_t)(arg0) },
     arg1,
   };
-  extension_set_state(&arg2);
+  int32_t ret = extension_set_state(&arg2);
+  return ret;
 }
 __attribute__((export_name("get-state")))
 int32_t __wasm_export_extension_get_state(void) {

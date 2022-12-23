@@ -28,7 +28,7 @@ extern "C"
   void extension_state_free(extension_state_t *ptr);
   void extension_greet(extension_string_t *name, extension_string_t *ret0);
   int32_t extension_answer_to_life(void);
-  void extension_set_state(extension_state_t *s);
+  int32_t extension_set_state(extension_state_t *s);
   void extension_get_state(extension_state_t *ret0);
   #ifdef __cplusplus
 }
