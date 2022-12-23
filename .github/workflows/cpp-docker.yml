@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ "main" ]
 
+# Cancel any in-flight jobs for the same PR/branch so there's only one active at a time
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
