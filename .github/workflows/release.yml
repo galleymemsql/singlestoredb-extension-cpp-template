@@ -15,10 +15,14 @@ jobs:
       run: docker build . -t singlestoredb-extension-cpp -f Dockerfile
     - name: Build WASM binary
       run: docker run -v $PWD:/repo -w/repo singlestoredb-extension-cpp /bin/bash -c make
+    - name: Create importer
+      run: ./create_loader.sh
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        prerelease: true
+        prerelease: false
         files: |
           LICENSE
+          *.wit
           *.wasm
+          load_extension.sql
