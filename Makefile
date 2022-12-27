@@ -1,4 +1,4 @@
-all: clean release
+all: clean release export
 
 .PHONY: debug
 debug: DBGFLAGS = -g
@@ -23,6 +23,10 @@ gen:
 	# temporary: https://github.com/bytecodealliance/wit-bindgen/issues/290
 	sed "s:canonical_abi_realloc(NULL, 0, 1, ret->len:\(char \*\)canonical_abi_realloc(NULL, 0, 1, ret->len:g" extension.c >extension.cpp
 	rm extension.c
+
+.PHONY: export
+export:
+	./create_loader.sh
 
 .PHONY: clean
 clean:

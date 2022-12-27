@@ -13,10 +13,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build docker image
       run: docker build . -t singlestoredb-extension-cpp -f Dockerfile
-    - name: Build WASM binary
+    - name: Build & export WASM binary
       run: docker run -v $PWD:/repo -w/repo singlestoredb-extension-cpp /bin/bash -c make
-    - name: Create importer
-      run: ./create_loader.sh
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
