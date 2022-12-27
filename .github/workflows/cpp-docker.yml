@@ -21,5 +21,3 @@ jobs:
       run: docker build . -t singlestoredb-extension-cpp -f Dockerfile
     - name: Build WASM binary
       run: docker run -v $PWD:/repo -w/repo singlestoredb-extension-cpp /bin/bash -c make
-    - name: Create importer
-      run: ./create_loader.sh
