@@ -1,5 +1,7 @@
 # SingleStoreDB extension template in C++
 
+**Attention**: The code in this repository is intended for experimental use only and is not fully tested, documented, or supported by SingleStore. Visit the [SingleStore Forums](https://www.singlestore.com/forum/) to ask questions about this repository.
+
 ![C++ Build](https://github.com/singlestore-labs/singlestoredb-extension-cpp-template/actions/workflows/cpp-docker.yml/badge.svg) ![Release](https://github.com/singlestore-labs/singlestoredb-extension-cpp-template/actions/workflows/release.yml/badge.svg)
 
 This repository provides a template repository for developing Wasm UDFs and TVFs for [SingleStoreDB](https://www.singlestore.com/) written in C++. It contains a [VS Code](https://www.singlestore.com/) development container to help users get bootstrapped quickly, but can be used in any IDE that supports simple [MakeFiles](https://www.gnu.org/software/make/manual/make.html#Introduction).
